@@ -21,12 +21,12 @@ public class ContratoServico {
 		for ( int i=1; i<= meses; i++) {
 			double taxaAtualizada= parcelaBasica + onlinePagamentoServico.juros(parcelaBasica,i);//200 x 1% x1 =202.00
 			//parcelaBasica=202
-			double fullQuota = taxaAtualizada + onlinePagamentoServico.taxaPagamento(taxaAtualizada);//ful Quota=200+ 2%=206.04
+			double valorTotalCota = taxaAtualizada + onlinePagamentoServico.taxaPagamento(taxaAtualizada);//ful Quota=200+ 2%=206.04
 			
 			//fullCota= 206.04
 			
 			Date dataVencimento = addMeses(contrato.getData(), i);
-			contrato.getParcelas().add(new Parcela(dataVencimento, fullQuota));
+			contrato.getParcelas().add(new Parcela(dataVencimento, valorTotalCota));
 		}
 		
 	}
